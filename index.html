@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnVenture - Your Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <!-- Auth container -->
+    <div id="auth-container">
+        <div class="auth-container">
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="auth-button">Login</button>
+                <p class="forgot-password">
+                    <a href="#" id="forgotPasswordLink">Forgot password?</a>
+                </p>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" id="showRegister">Register</a>
+                </p>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <h2>Register</h2>
+                <div class="form-group">
+                    <input type="text" id="registerName" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="New Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Retype Password" required>
+                </div>
+                <button type="submit" class="auth-button">Register</button>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" id="showLogin">Login</a>
+                </p>
+            </form>
+
+            <!-- Forgot Password Form -->
+            <form id="forgotPasswordForm" class="auth-form" style="display: none;">
+                <h2>Forgot Password</h2>
+                <div class="form-group">
+                    <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="auth-button">Reset Password</button>
+                <p class="auth-switch">
+                    <a href="#" id="backToLogin">Back to Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main content (hidden until login) -->
+    <div id="main-content" style="display: none;">
+    <header>
+        <h1>LEARNVENTURE</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#courses">COURSES</a></li>
+                <li><a href="#contact">CONTACT US</a></li>
+                    <li><a href="#" id="logout-button">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>WELCOME TO LEARNVENTURE</h2>
+        <p>LearnVenture is an innovative online learning platform that is designed to empower students with quality education in various fields and inventing new projects with innovative ideas, which can help them to develop a successful career.</p>
+    </section>
+
+    <section id="about">
+        <h2>ABOUT US</h2>
+        <p>We offer quality education in various subjects for Intermediate and BTech students to help them excel in their studies and careers.</p>
+    </section>
+
+    <section id="courses">
+        <h2>COURSES</h2>
+        <div class="course-category">
+            <h3>INTERMEDIATE</h3>
+            <div class="course-grid">
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>MATHEMATICS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1xNHR79J292OA5xlTuxibOSkNYlhHWIe5?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>PHYSICS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1-rNTYQ9NZMuOy15BgT7OifJOP92gURC9?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>CHEMISTRY</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1FY297b4v33Wmd8taRWap1YBrnW8n6Ddq?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-category">
+            <h3>BTECH</h3>
+            <div class="course-grid">
+                <div class="course-box full-width">
+                    <div class="course-header">
+                        <span>VIDEO LECTURES OF ALL BTECH COURSES</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1CcCbTHq2RFpKSQqK-80tUReUhWz9R7Xw?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>C PROGRAMMING</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1iebLhNwqA7x3JIf63OAVltrmmk4XJ5Mc?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>C++ PROGRAMMING</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1DD6scLQaJ7LKUKa3JaZyu0beZ__OlkYT?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>JAVA PROGRAMMING</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1h0FLXWA1lHBSP1B2RZu-pS_s2PA8ZneI?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>PYTHON PROGRAMMING</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1Kl3xWnp3G44WDuEHRk27w8tiuxIbSXG_?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>DSA (IN C, C++, JAVA, PYTHON)</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href=" https://drive.google.com/drive/folders/1bZpnr1-xh2c7Fq2ptQPJj8L-Z6ctLL30?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>AI & ML</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/167Jq6O2aSl0uV_arziCuRfsqXoMbVqkt?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>DATA SCIENCE</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1-tdxLcuWqSGngjH-TqvswfSBUCtkzwxs?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>SQL</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1zkzHuYdI0tI-qIOHQkbpxhhjKSKvI2zL?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>POWER BI</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1H_iNixcQDyWJphTQD85vwp1JJEAqCS9r?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>TABLEAU</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1Ml0A5YdPFB0FwtpT55RtQvs3xghtvj1N?usp=sharing"
+                            target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>HTML</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/14RiCCAFYyk1MuB3Ar1wwD3gokSNoHh2E?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>CSS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1PDEmCOfh6meIsl6l2ZYEUekFSK8TBrQD?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>BOOTSTRAP</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1OE7C2okxtOFOrsexgeskaQjHp_eHhNgW?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>JAVASCRIPT</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1VWIb2advJ0kBTaKD_AtiZyOIwgHHhcOX?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>REACT.JS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1Uw2TDULcpg0dOjU68H-qqkIae_FsVRAP?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>ANGULAR.JS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1gijn_zIzywJ9vUScX_CdzVD8nRc-r2wI?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>NODE.JS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1_e4EWpztBPyiC73L0HSO0zHYMEvN_gp2?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>EXPRESS.JS</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1EXMi62dLjfY6E3nFtz5ROpmTfIz89eJY?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>MONGO DB</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1FbxX3BBklgmqcSIbyfmwtkE20GrffBxI?usp=sharing" target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>DEEP LEARNING</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1A8F_c_CIJQ1qglOTIlJUF1dgnUjU43wO?usp=sharing"
+                            target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-box">
+                    <div class="course-header">
+                        <span>NLP</span>
+                        <button class="toggle-button">▼</button>
+                    </div>
+                    <div class="course-content">
+                        <div class="view-content-box">
+                            <a href="https://drive.google.com/drive/folders/1B1G9G-QCFK2eyX_-3Y5tWmoeXAD5SOWy?usp=sharing"
+                            target="_blank">View Content</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>CONTACT US</h2>
+        <p>Email: <a href="mailto:support@learnventure.io">support@learnventure.io</a></p>
+        <p>Phone: <a href="tel:+919182548143">+91 9182548143</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LearnVenture. All rights reserved.</p>
+    </footer>
+
+    <div id="chatbot-container">
+        <button id="chatbot-button">
+            <span class="chat-icon">💬</span>
+        </button>
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <h3>LearnVenture AI Assistant</h3>
+                <button id="close-button">×</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div id="loading-indicator" style="display: none;">Thinking...</div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        const user = JSON.parse(localStorage.getItem('user'));
+        const authContainer = document.getElementById('auth-container');
+        const mainContent = document.getElementById('main-content');
+        
+        if (user) {
+            // User is logged in, show main content
+            authContainer.style.display = 'none';
+            mainContent.style.display = 'block';
+        } else {
+            // User is not logged in, show auth forms
+            authContainer.style.display = 'flex';
+            mainContent.style.display = 'none';
+        }
+
+        // Form switching
+        document.getElementById('showRegister').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'flex';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        });
+
+        document.getElementById('showLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'flex';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        });
+
+        document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'flex';
+            document.getElementById('registerForm').style.display = 'none';
+        });
+
+        document.getElementById('backToLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'flex';
+        });
+
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('user', JSON.stringify(data));
+                    window.location.reload();
+                } else {
+                    alert(data.error || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('An error occurred during login');
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password, confirmPassword })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Registration successful! Please login.');
+                    document.getElementById('registerForm').style.display = 'none';
+                    document.getElementById('loginForm').style.display = 'flex';
+                } else {
+                    alert(data.error || 'Registration failed');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                alert('An error occurred during registration');
+            }
+        });
+
+        document.getElementById('forgotPasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('forgotEmail').value;
+
+            try {
+                const response = await fetch('/api/forgot-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Password reset instructions sent to your email');
+                    document.getElementById('forgotPasswordForm').style.display = 'none';
+                    document.getElementById('loginForm').style.display = 'flex';
+                } else {
+                    alert(data.error || 'Failed to process request');
+                }
+            } catch (error) {
+                console.error('Forgot password error:', error);
+                alert('An error occurred while processing your request');
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logout-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('user');
+            window.location.reload();
+        });
+    </script>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

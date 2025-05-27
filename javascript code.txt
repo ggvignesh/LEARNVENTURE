@@ -1,0 +1,13 @@
+// Toggle "View Content" for each course
+document.querySelectorAll('.course-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            header.querySelector('.toggle-button').textContent = '▼';
+        } else {
+            content.style.display = 'block';
+            header.querySelector('.toggle-button').textContent = '▲';
+        }
+    });
+});
